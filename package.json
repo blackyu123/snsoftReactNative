@@ -7,8 +7,11 @@
     "test": "jest"
   },
   "dependencies": {
+    "dotenv": "^6.0.0",
     "react": "16.3.1",
-    "react-native": "0.55.4"
+    "react-native": "0.55.4",
+    "react-native-vector-icons": "^4.6.0",
+    "react-navigation": "^2.6.2"
   },
   "devDependencies": {
     "babel-jest": "22.4.4",
