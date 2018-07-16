@@ -5,7 +5,7 @@ export default class DataSource {
     }
     return DataSource.instance
   }
-
+  
   constructor() {
     this.globalState = "Get global state success"
   }
