@@ -20,11 +20,6 @@ export default class HomeScreen extends React.Component {
     this.fetchGlobalState(DataSource.shared.globalState)
   }
 
-  async editGlobalState(newState) {
-    await DataSource.shared.editGlobalState(newState)
-    this.fetchGlobalState(DataSource.shared.globalState)
-  }
-
   render() {
     const { globalState } = this.state
 
@@ -36,9 +31,14 @@ export default class HomeScreen extends React.Component {
           onPress={() => this.editGlobalState("edited")}/>
         <Button
           title="Go to Details test"
-          onPress={() => this.props.navigation.navigate("Details")}
-        />
+          onPress={() => this.props.navigation.navigate("Details")}/>
       </View>
     )
+  }
+
+  // event handler
+  async editGlobalState(newState) {
+    await DataSource.shared.editGlobalState(newState)
+    this.fetchGlobalState(DataSource.shared.globalState)
   }
 }

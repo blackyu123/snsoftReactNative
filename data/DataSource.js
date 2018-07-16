@@ -10,8 +10,7 @@ export default class DataSource {
     this.globalState = "Get global state success"
   }
 
-  async editGlobalState(newState) {
+  editGlobalState(newState) {
     this.globalState = newState
   }
-
 }
