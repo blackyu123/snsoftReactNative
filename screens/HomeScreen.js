@@ -1,5 +1,5 @@
 import React from "react"
-import { View, Text, Button } from "react-native"
+import { View, Text, Button, Image, ScrollView } from "react-native"
 import DataSource from "../data/DataSource"
 
 export default class HomeScreen extends React.Component {
@@ -24,15 +24,35 @@ export default class HomeScreen extends React.Component {
     const { globalState } = this.state
 
     return (
-      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-        <Text>Home Screen, get global state: {globalState}</Text>
+      <ScrollView style={{ flex: 1, padding: 20 }}>
+        <View style={{ flexDirection: "row" }}>
+          <View style={{ width: "58%", paddingRight: 10 }}>
+            <Image
+              resizeMode={"cover"}
+              style={{ height: 270 }}
+              source={{ uri: "https://www.eu88888.com/static/img/hotGame.7392825.jpg" }}/>
+          </View>
+
+          <View style={{ width: "42%" }}>
+            <Image
+              resizeMode={"cover"}
+              style={{ flex: 2, marginBottom: 10 }}
+              source={{ uri: "https://www.eu88888.com/static/img/lotteryPoolGame.0dcad26.jpg" }}/>
+            <Image
+              resizeMode={"cover"}
+              style={{ flex: 1 }}
+              source={{ uri: "https://www.eu88888.com/static/img/newGame.bdd288e.jpg" }}/>
+          </View>
+        </View>
+
+        <Text>Global aate: {globalState}, </Text>
         <Button
           title={"edit global state"}
           onPress={() => this.editGlobalState("edited")}/>
         <Button
           title="Go to Details test"
           onPress={() => this.props.navigation.navigate("Details")}/>
-      </View>
+      </ScrollView>
     )
   }
 
