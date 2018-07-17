@@ -1,8 +1,8 @@
 import React from "react"
 import { View } from "react-native"
-import HomeScreen from "../screens/HomeScreen"
-import DashboardTabRoutes from "../screens/Dashboard"
 import { createStackNavigator } from "react-navigation"
+import HomeScreen from "../screens/HomeScreen"
+import TabMenu from "../components/TabMenu"
 import CustomHeader from "../components/CustomHeader"
 import HeaderStyles from "../components/CustomHeaderStyle"
 
@@ -16,7 +16,7 @@ const Routes = createStackNavigator(
       },
     },
     Dashboard: {
-      screen:            DashboardTabRoutes,
+      screen:            TabMenu,
       navigationOptions: {
         header: null,
       },

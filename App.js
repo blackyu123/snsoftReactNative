@@ -10,7 +10,7 @@ YellowBox.ignoreWarnings([
 ])
 
 const App = () => (
-  <View style={{ flex: 1 }}>
+  <View style={{ flex: 1, backgroundColor: "#0b1829" }}>
     <Routes/>
   </View>
 )

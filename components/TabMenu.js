@@ -2,18 +2,19 @@ import React from "react"
 import { View, Text } from "react-native"
 import { TabNavigator, TabBarBottom, createStackNavigator, } from "react-navigation"
 import Ionicons from "react-native-vector-icons/Ionicons"
-import CustomHeader from "../components/CustomHeader"
-import CustomTabBarBottom from "../components/CustomTabBarBottom"
-import HeaderStyles from "../components/CustomHeaderStyle"
-import AccountTabScreen from "./tabs/AccountTab"
-import HomeScreen from "./HomeScreen"
-import TopHeader from "../components/TopHeader"
+import CustomHeader from "./CustomHeader"
+import CustomTabBarBottom from "./CustomTabBarBottom"
+import HeaderStyles from "./CustomHeaderStyle"
+import AccountTabScreen from "../screens/tabs/AccountTab"
+import HomeScreen from "../screens/HomeScreen"
+import TopHeader from "./TopHeader"
 
 let headerDefaultNavigationConfig = {
   header: props => <CustomHeader {...props} />,
   ...HeaderStyles
 }
 
+// tab item
 const HomeScreenStack = createStackNavigator(
   {
     Account: {
@@ -82,16 +83,17 @@ const ResultsTab = createStackNavigator(
   },
 )
 
-const DashboardTabRoutes = TabNavigator(
+// tab container
+const TabMenu = TabNavigator(
   {
-    首页: HomeScreenStack,
-    Phone:   PhoneTab,
+    首页:      HomeScreenStack,
+    存款:      PhoneTab,
     History: HistoryTab,
     Results: ResultsTab,
   },
   {
     // default route
-    initialRouteName:  "首页",
+    initialRouteName: "首页",
 
     // tab icons
     navigationOptions: ({ navigation }) => {
@@ -105,7 +107,7 @@ const DashboardTabRoutes = TabNavigator(
             case "首页":
               iconName = `ios-home${focused ? "" : "-outline"}`
               break
-            case "Phone":
+            case "存款":
               iconName = `ios-megaphone${focused ? "" : "-outline"}`
               break
             case "History":
@@ -142,4 +144,4 @@ const DashboardTabRoutes = TabNavigator(
   },
 )
 
-export default DashboardTabRoutes
+export default TabMenu
