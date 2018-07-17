@@ -5,8 +5,9 @@ import Icon from "react-native-vector-icons/FontAwesome"
 import MaterialIcon from "react-native-vector-icons/MaterialCommunityIcons"
 import HomeScreen from "./screens/HomeScreen"
 import PopularGameListScreen from "./screens/PopularGameListScreen"
-import { YellowBox } from 'react-native';
-YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader']);
+import { YellowBox } from "react-native"
+
+YellowBox.ignoreWarnings(["Warning: isMounted(...) is deprecated", "Module RCTImageLoader"])
 
 const HomeStack = createStackNavigator({
   Home:    { screen: HomeScreen },
@@ -18,34 +19,45 @@ const SettingsStack = createStackNavigator({
   Details:  { screen: PopularGameListScreen },
 })
 
-export default TabNavigator(
-  {
-    首页: { screen: HomeStack },
-    存款: { screen: SettingsStack },
-    提款: { screen: SettingsStack },
-    账户: { screen: SettingsStack },
-  },
-  {
-    navigationOptions: ({ navigation }) => ({
-      tabBarIcon: ({ focused, tintColor }) => {
-        const { routeName } = navigation.state
-        let icon
-        if (routeName === "首页") {
-          icon = <Icon name={"home"} size={25} color={tintColor}/>
-        } else if (routeName === "存款") {
-          icon = <MaterialIcon name={"poker-chip"} size={25} color={tintColor}/>
-        }
+class LogoTitle extends React.Component {
+  render() {
+    return (
+      <View>as</View>
+    )
+  }
+}
 
-        return icon
+export default createStackNavigator({
+  MyTab: {
+    screen:            TabNavigator({
+        首页: { screen: HomeStack },
+        存款: { screen: SettingsStack },
+        提款: { screen: SettingsStack },
+        账户: { screen: SettingsStack },
       },
-    }),
-    tabBarComponent:   TabBarBottom,
-    tabBarPosition:    "bottom",
-    tabBarOptions:     {
-      activeTintColor:   "tomato",
-      inactiveTintColor: "gray",
-    },
-    animationEnabled:  false,
-    swipeEnabled:      false,
+      {
+        navigationOptions: ({ navigation }) => ({
+          tabBarIcon: ({ focused, tintColor }) => {
+            const { routeName } = navigation.state
+            let icon
+            if (routeName === "首页") {
+              icon = <Icon name={"home"} size={25} color={tintColor}/>
+            } else if (routeName === "存款") {
+              icon = <MaterialIcon name={"poker-chip"} size={25} color={tintColor}/>
+            }
+
+            return icon
+          },
+        }),
+        tabBarComponent:   TabBarBottom,
+        tabBarPosition:    "bottom",
+        tabBarOptions:     {
+          activeTintColor:   "tomato",
+          inactiveTintColor: "gray",
+        },
+        animationEnabled:  false,
+        swipeEnabled:      false,
+      },),
+    navigationOptions: { title: "Header title" },
   },
-)
+})

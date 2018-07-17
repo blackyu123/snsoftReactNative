@@ -1,6 +1,9 @@
 import React from "react"
 import { View, Text, Button, Image, ScrollView } from "react-native"
 import DataSource from "../data/DataSource"
+import HotGame from "../assets/hotgame.jpg"
+import Lottery from "../assets/lottery.jpg"
+import LatestGame from "../assets/newgame.jpg"
 
 export default class HomeScreen extends React.Component {
   constructor(props) {
@@ -25,27 +28,27 @@ export default class HomeScreen extends React.Component {
 
     return (
       <ScrollView style={{ flex: 1, padding: 20 }}>
-        <View style={{ flexDirection: "row" }}>
+        <View style={{ flexDirection: "row", height: 300 }}>
           <View style={{ width: "58%", paddingRight: 10 }}>
             <Image
-              resizeMode={"cover"}
-              style={{ height: 270 }}
-              source={{ uri: "https://www.eu88888.com/static/img/hotGame.7392825.jpg" }}/>
+              resizeMode={"stretch"}
+              style={{ flex: 1, width: "100%" }}
+              source={HotGame}/>
           </View>
 
           <View style={{ width: "42%" }}>
             <Image
-              resizeMode={"cover"}
-              style={{ flex: 2, marginBottom: 10 }}
-              source={{ uri: "https://www.eu88888.com/static/img/lotteryPoolGame.0dcad26.jpg" }}/>
+              resizeMode={"stretch"}
+              style={{ flex: 2, marginBottom: 10, width: "100%" }}
+              source={Lottery}/>
             <Image
-              resizeMode={"cover"}
-              style={{ flex: 1 }}
-              source={{ uri: "https://www.eu88888.com/static/img/newGame.bdd288e.jpg" }}/>
+              resizeMode={"stretch"}
+              style={{ flex: 1, width: "100%" }}
+              source={LatestGame}/>
           </View>
         </View>
 
-        <Text>Global aate: {globalState}, </Text>
+        <Text>Global aaaaaate: {globalState}, </Text>
         <Button
           title={"edit global state"}
           onPress={() => this.editGlobalState("edited")}/>
