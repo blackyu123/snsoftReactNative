@@ -1,13 +1,17 @@
 import React from "react"
-import { View, Text } from "react-native"
-import { TabNavigator, TabBarBottom, createStackNavigator, } from "react-navigation"
-import Ionicons from "react-native-vector-icons/Ionicons"
+import { View, Text, Image } from "react-native"
+import { TabNavigator, createStackNavigator, } from "react-navigation"
 import CustomHeader from "./CustomHeader"
 import CustomTabBarBottom from "./CustomTabBarBottom"
 import HeaderStyles from "./CustomHeaderStyle"
 import AccountTabScreen from "../screens/tabs/AccountTab"
 import HomeScreen from "../screens/HomeScreen"
 import TopHeader from "./TopHeader"
+import HomeImage from "../../assets/menu/home.png"
+import DepositImage from "../../assets/menu/deposit.png"
+import WithdrawImage from "../../assets/menu/withdraw.png"
+import AccountImage from "../../assets/menu/account.png"
+import DividerImage from "../../assets/menu/divider.png"
 
 let headerDefaultNavigationConfig = {
   header: props => <CustomHeader {...props} />,
@@ -94,43 +98,14 @@ const TabMenu = TabNavigator(
   {
     // default route
     initialRouteName: "首页",
-
-    // tab icons
-    navigationOptions: ({ navigation }) => {
-      const { routeName, routes } = navigation.state
-      let params = routes && routes[1] && routes[1].params
-      return {
-        tabBarIcon: ({ focused, tintColor }) => {
-          const { routeName } = navigation.state
-          let iconName
-          switch (routeName) {
-            case "首页":
-              iconName = `ios-home${focused ? "" : "-outline"}`
-              break
-            case "存款":
-              iconName = `ios-megaphone${focused ? "" : "-outline"}`
-              break
-            case "History":
-              iconName = `ios-folder${focused ? "" : "-outline"}`
-              break
-            case "Results":
-              iconName = `ios-sunny${focused ? "" : "-outline"}`
-              break
-            default:
-              break
-          }
-          // icon component from react-native-vector-icons
-          return <Ionicons name={iconName} size={25} color={tintColor}/>
-        },
-      }
-    },
     tabBarOptions:     {
       activeTintColor:   "#6200EE",
       inactiveTintColor: "#858585",
+      showLabel:         false,
       style:             {
         height:          60,
-        paddingVertical: 5,
-        backgroundColor: "transparent",
+        paddingVertical: 2,
+        backgroundColor: "#1c1e28",
       },
       labelStyle:        {
         fontSize:   12,
@@ -139,9 +114,20 @@ const TabMenu = TabNavigator(
     },
     tabBarComponent:   props => <CustomTabBarBottom {...props}/>,
     tabBarPosition:    "bottom",
-    animationEnabled:  true,
+    animationEnabled:  false,
     swipeEnabled:      true,
   },
 )
+
+const styles = {
+  tabItemImage:   {
+    height: "100%",
+  },
+  tabItemDivider: {
+    position: "absolute",
+    top:      0,
+    left:    0,
+  },
+}
 
 export default TabMenu
