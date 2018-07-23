@@ -8,7 +8,12 @@ import WithdrawImage from "../../assets/menu/withdraw.png"
 import AccountImage from "../../assets/menu/account.png"
 import DividerImage from "../../assets/menu/divider.png"
 
+
+
+
+
 const CustomTabBarBottom = props => {
+  console.log(props.navigation.state.routes)
   const routeList = props.navigation.state.routes.map(route => {
     const { key, routeName } = route
     let iconName

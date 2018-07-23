@@ -3,7 +3,9 @@ import { Header } from "react-navigation"
 import { View, Platform } from "react-native"
 import LinearGradient from "react-native-linear-gradient"
 
+
 const CustomHeader = props => {
+  console.log(props.navigation.state.routes)
   return (
     <View
       style={{

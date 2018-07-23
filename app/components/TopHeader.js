@@ -29,6 +29,7 @@ export default class TopHeader extends React.Component {
   }
 
   render() {
+   // alert(this.props.navigation.state.routes[0])
     const { showLoginModal } = this.state
 
     return (
